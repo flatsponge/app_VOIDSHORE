@@ -21,7 +21,7 @@ export const PaywallStep: React.FC<PaywallStepProps> = ({ onNext }) => {
             <View className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-600 opacity-20 rounded-full blur-3xl pointer-events-none" />
             <View className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-600 opacity-10 rounded-full blur-3xl pointer-events-none" />
 
-            <ScrollView contentContainerStyle={{ paddingBottom: 150, paddingTop: insets.top + 24, paddingHorizontal: 24 }}>
+            <ScrollView contentContainerStyle={{ paddingBottom: 150, paddingTop: insets.top + 40, paddingHorizontal: 24 }}>
                 <MotiView
                     from={{ opacity: 0, translateY: 20 }}
                     animate={{ opacity: 1, translateY: 0 }}

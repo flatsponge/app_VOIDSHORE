@@ -18,7 +18,7 @@ export const IntroStep: React.FC<IntroStepProps> = ({ onNext }) => {
   return (
     <View
       className="flex-1 items-center justify-center bg-[#09090b] relative overflow-hidden px-8"
-      style={{ paddingBottom: insets.bottom, paddingTop: insets.top + 24 }}
+      style={{ paddingBottom: insets.bottom, paddingTop: insets.top + 40 }}
     >
       {/* Background gradient orb - pulsating */}
       {/* Note: Blur effect is approximated with low opacity and layering in RN if not using Skia/SVG */}

@@ -78,86 +78,86 @@ export const FlowEditor: React.FC<FlowEditorProps> = ({
 
                     {/* Text Input Area */}
                     <View className="flex-1 justify-center px-8 relative z-20">
-                    <>
-                        {!isSending ? (
-                            <MotiView
-                                key="input"
-                                from={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0, translateY: -50 }}
-                                transition={{ type: 'timing', duration: 500 }}
-                                className="w-full"
-                            >
-                                <TextInput
-                                    value={content}
-                                    onChangeText={setContent}
-                                    placeholder={placeholder}
-                                    placeholderTextColor="rgba(255,255,255,0.2)"
-                                    multiline
-                                    style={{
-                                        fontFamily: 'serif', // Ensure serif font is loaded or use system serif
-                                        fontSize: getFontSize(),
-                                        color: '#f4f4f5', // zinc-100
-                                        textAlign: 'center',
-                                        minHeight: 60,
-                                        maxHeight: '60%'
-                                    }}
-                                    selectionColor="rgba(99, 102, 241, 0.3)"
-                                />
-                            </MotiView>
-                        ) : (
-                            <MotiView
-                                key="sending"
-                                from={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="items-center justify-center gap-4"
-                            >
+                        <>
+                            {!isSending ? (
                                 <MotiView
-                                    from={{ translateY: 0, opacity: 1 }}
-                                    animate={{ translateY: -100, opacity: 0 }}
-                                    transition={{ type: 'timing', duration: 1500 }}
+                                    key="input"
+                                    from={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0, translateY: -50 }}
+                                    transition={{ type: 'timing', duration: 500 }}
+                                    className="w-full"
                                 >
-                                    <Text className="font-serif italic text-2xl text-zinc-500">
-                                        Drifting away...
-                                    </Text>
+                                    <TextInput
+                                        value={content}
+                                        onChangeText={setContent}
+                                        placeholder={placeholder}
+                                        placeholderTextColor="rgba(255,255,255,0.2)"
+                                        multiline
+                                        style={{
+                                            fontFamily: 'serif', // Ensure serif font is loaded or use system serif
+                                            fontSize: getFontSize(),
+                                            color: '#f4f4f5', // zinc-100
+                                            textAlign: 'center',
+                                            minHeight: 60,
+                                            maxHeight: '60%'
+                                        }}
+                                        selectionColor="rgba(99, 102, 241, 0.3)"
+                                    />
                                 </MotiView>
-                            </MotiView>
-                        )}
-                    </>
-                </View>
+                            ) : (
+                                <MotiView
+                                    key="sending"
+                                    from={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    className="items-center justify-center gap-4"
+                                >
+                                    <MotiView
+                                        from={{ translateY: 0, opacity: 1 }}
+                                        animate={{ translateY: -100, opacity: 0 }}
+                                        transition={{ type: 'timing', duration: 1500 }}
+                                    >
+                                        <Text className="font-serif italic text-2xl text-zinc-500">
+                                            Drifting away...
+                                        </Text>
+                                    </MotiView>
+                                </MotiView>
+                            )}
+                        </>
+                    </View>
 
                     {/* Controls Area */}
                     {!isDemo && !isSending && (
-                        <View className="absolute bottom-0 left-0 right-0 px-6 pb-8 flex items-center justify-end gap-6 z-30">
+                        <View className="absolute bottom-0 left-0 right-0 px-6 pb-36 flex items-center justify-end gap-6 z-30">
 
                             {/* Context/Timer */}
-                        <View className="h-8 items-center justify-center">
-                            <>
-                                {timeLeft ? (
-                                    <MotiView
-                                        key="timer"
-                                        from={{ opacity: 0, translateY: 10 }}
-                                        animate={{ opacity: 1, translateY: 0 }}
-                                        exit={{ opacity: 0, translateY: -10 }}
-                                        className="flex-row items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full"
-                                    >
-                                        <Clock size={12} color="#71717a" />
-                                        <Text className="text-zinc-500 font-mono text-xs">{timeLeft}</Text>
-                                    </MotiView>
-                                ) : content.length === 0 ? (
-                                    <MotiView
-                                        key="hint"
-                                        from={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        className="flex-row items-center gap-2"
-                                    >
-                                        <Feather size={12} color="#52525b" />
-                                        <Text className="text-zinc-600 text-xs font-medium tracking-widest uppercase">Unburden your mind</Text>
-                                    </MotiView>
-                                ) : null}
-                            </>
-                        </View>
+                            <View className="h-8 items-center justify-center">
+                                <>
+                                    {timeLeft ? (
+                                        <MotiView
+                                            key="timer"
+                                            from={{ opacity: 0, translateY: 10 }}
+                                            animate={{ opacity: 1, translateY: 0 }}
+                                            exit={{ opacity: 0, translateY: -10 }}
+                                            className="flex-row items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full"
+                                        >
+                                            <Clock size={12} color="#71717a" />
+                                            <Text className="text-zinc-500 font-mono text-xs">{timeLeft}</Text>
+                                        </MotiView>
+                                    ) : content.length === 0 ? (
+                                        <MotiView
+                                            key="hint"
+                                            from={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            className="flex-row items-center gap-2"
+                                        >
+                                            <Feather size={12} color="#52525b" />
+                                            <Text className="text-zinc-600 text-xs font-medium tracking-widest uppercase">Unburden your mind</Text>
+                                        </MotiView>
+                                    ) : null}
+                                </>
+                            </View>
 
                             {/* Main Action Button */}
                             <View className="h-16 items-center justify-center">

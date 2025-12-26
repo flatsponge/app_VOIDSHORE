@@ -54,7 +54,7 @@ export const TopicsStep: React.FC<TopicsStepProps> = ({ onNext }) => {
     <View className="flex-1 bg-black relative overflow-hidden">
       <View
         className="px-6 z-20 items-center pointer-events-none"
-        style={{ paddingTop: insets.top + 24 }}
+        style={{ paddingTop: insets.top + 40 }}
       >
         <MotiText
           from={{ opacity: 0, translateY: -10 }}

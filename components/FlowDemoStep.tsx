@@ -24,7 +24,7 @@ export const FlowDemoStep: React.FC<FlowDemoStepProps> = ({ onNext }) => {
     return (
         <View
             className="flex-1 bg-[#09090b]"
-            style={{ paddingTop: insets.top + 24 }}
+            style={{ paddingTop: insets.top + 40 }}
         >
             <View className="px-6 mb-4 items-center z-20">
                 <>

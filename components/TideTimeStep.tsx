@@ -24,14 +24,14 @@ const ITEM_HEIGHT = 56;
 const VISIBLE_ITEMS = 3;
 
 export const TideTimeStep: React.FC<TideTimeStepProps> = ({ onNext }) => {
-    const [selectedHour, setSelectedHour] = React.useState('09');
-    const [selectedMinute, setSelectedMinute] = React.useState('00');
+    const [selectedHour, setSelectedHour] = React.useState('10');
+    const [selectedMinute, setSelectedMinute] = React.useState('10');
     const insets = useSafeAreaInsets();
 
     return (
         <View
             className="flex-1 bg-black px-6 relative"
-            style={{ paddingTop: insets.top }}
+            style={{ paddingTop: insets.top + 40 }}
         >
             {/* Ocean BG - Approximate gradient */}
             <View className="absolute top-0 left-0 right-0 h-1/2 bg-blue-900 opacity-10 pointer-events-none" />

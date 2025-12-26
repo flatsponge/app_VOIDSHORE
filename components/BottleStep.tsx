@@ -18,7 +18,7 @@ export const BottleStep: React.FC<BottleStepProps> = ({ onNext }) => {
   return (
     <View
       className="flex-1 items-center justify-center bg-[#09090b] overflow-hidden"
-      style={{ paddingBottom: insets.bottom, paddingTop: insets.top + 24 }}
+      style={{ paddingBottom: insets.bottom, paddingTop: insets.top + 40 }}
     >
 
       {/* Background Ocean Effect */}
