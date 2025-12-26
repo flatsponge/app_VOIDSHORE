@@ -288,7 +288,8 @@ export const MainApp: React.FC = () => {
                         from={{ opacity: 0, translateY: -50, scale: 0.9 }}
                         animate={{ opacity: 1, translateY: 0, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
-                        className="absolute top-16 left-0 right-0 items-center z-50 pointer-events-none"
+                        className="absolute left-0 right-0 items-center z-50 pointer-events-none"
+                        style={{ top: insets.top + 8 }}
                     >
                         <View className={`bg-zinc-800 border border-white/10 px-6 py-4 rounded-2xl shadow-2xl flex-row items-center gap-3 ${notificationType === 'xp' ? 'border-indigo-500/30 bg-indigo-900' : ''}`}>
                             <View className={`w-2 h-2 rounded-full ${notificationType === 'xp' ? 'bg-yellow-400' : 'bg-indigo-400'}`} />

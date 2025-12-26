@@ -12,6 +12,7 @@
             "distribution": "internal"
         },
         "simulator": {
+            "developmentClient": true,
             "ios": {
                 "simulator": true
             }

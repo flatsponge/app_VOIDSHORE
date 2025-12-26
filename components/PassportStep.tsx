@@ -57,7 +57,7 @@ export const PassportStep: React.FC<PassportStepProps> = ({ onNext }) => {
     return (
         <View
             className="flex-1 items-center px-6 bg-black"
-            style={{ paddingTop: insets.top + 20 }}
+            style={{ paddingTop: insets.top + 24 }}
         >
 
             <View className="items-center mb-8 z-10">
