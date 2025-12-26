@@ -3,6 +3,7 @@ import { View, Text, Dimensions } from 'react-native';
 import { MotiView, MotiText } from 'moti';
 import { Button } from './Button';
 import { Heart, User } from 'lucide-react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface CommunityStepProps {
   onNext: () => void;
@@ -11,8 +12,13 @@ interface CommunityStepProps {
 const { width } = Dimensions.get('window');
 
 export const CommunityStep: React.FC<CommunityStepProps> = ({ onNext }) => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <View className="flex-1 items-center justify-center bg-[#09090b] pt-16 px-6 relative overflow-hidden">
+    <View
+        className="flex-1 items-center justify-center bg-[#09090b] px-6 relative overflow-hidden"
+        style={{ paddingTop: insets.top + 16 }}
+    >
       
       <View className="items-center z-10 mb-12 max-w-sm">
         <MotiText 

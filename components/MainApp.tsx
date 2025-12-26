@@ -8,6 +8,7 @@ import { Waves, PenLine, Sparkles } from 'lucide-react-native';
 import { SentBottle } from '../types';
 import { LevelUpModal } from './LevelUpModal';
 import { ProfileModal } from './ProfileModal';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 // Levels Configuration
 const LEVELS = [
@@ -49,6 +50,7 @@ export const MainApp: React.FC = () => {
 
     const [nextSendTime, setNextSendTime] = useState<number | null>(null);
     const [sentBottles, setSentBottles] = useState<SentBottle[]>([]);
+    const insets = useSafeAreaInsets();
 
     // Load Data
     useEffect(() => {
@@ -158,7 +160,11 @@ export const MainApp: React.FC = () => {
             </View>
 
             {/* HEADER */}
-            <View className="absolute top-12 left-0 right-0 px-6 z-30 flex-row justify-between items-start" pointerEvents="box-none">
+            <View
+                className="absolute left-0 right-0 px-6 z-30 flex-row justify-between items-start"
+                pointerEvents="box-none"
+                style={{ top: insets.top + 12 }}
+            >
                 <MotiView
                     from={{ opacity: 0, translateX: -20 }}
                     animate={{ opacity: 1, translateX: 0 }}
@@ -251,7 +257,11 @@ export const MainApp: React.FC = () => {
             </View>
 
             {/* Navigation Dock */}
-            <View className="absolute bottom-0 left-0 right-0 h-28 items-center justify-end pb-8 z-40" pointerEvents="box-none">
+            <View
+                className="absolute bottom-0 left-0 right-0 h-28 items-center justify-end z-40"
+                pointerEvents="box-none"
+                style={{ paddingBottom: insets.bottom + 8 }}
+            >
                 <View className="rounded-full overflow-hidden shadow-xl border border-white/10">
                     <BlurView intensity={30} tint="dark" className="px-8 py-4 flex-row items-center gap-12">
                         <Pressable
