@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable, Dimensions } from 'react-native';
+import { View, Text, Pressable, Dimensions, DimensionValue } from 'react-native';
 import { MotiView, MotiText } from 'moti';
 import { Button } from './Button';
 import { 
@@ -23,7 +23,7 @@ const topics = [
 ];
 
 // Optimized positions to prevent overlap
-const positions = [
+const positions: { top: DimensionValue; left: DimensionValue }[] = [
     { top: '20%', left: '15%' },
     { top: '20%', left: '65%' },
     { top: '35%', left: '10%' },
