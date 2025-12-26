@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import Animated, {
-    useAnimatedStyle,
-    useSharedValue,
-    withTiming,
-    Easing
-} from 'react-native-reanimated';
 import { IntroStep } from './components/IntroStep';
 import { FlowDemoStep } from './components/FlowDemoStep';
 import { BottleStep } from './components/BottleStep';
@@ -16,78 +10,9 @@ import { TideTimeStep } from './components/TideTimeStep';
 import { CommunityStep } from './components/CommunityStep';
 import { PaywallStep } from './components/PaywallStep';
 import { MainApp } from './components/MainApp';
+import { AnimatedStep } from './components/AnimatedStep';
+import { ProgressSegment } from './components/ProgressSegment';
 import './global.css';
-
-const { height } = Dimensions.get('window');
-
-// Animated step wrapper component
-function AnimatedStep({
-    children,
-    isActive,
-    isMounted
-}: {
-    children: React.ReactNode;
-    isActive: boolean;
-    isMounted: boolean;
-}) {
-    const opacity = useSharedValue(0);
-    const translateY = useSharedValue(height);
-    const scale = useSharedValue(1);
-
-    useEffect(() => {
-        if (isMounted) {
-            opacity.value = withTiming(isActive ? 1 : 0, { duration: 800, easing: Easing.out(Easing.cubic) });
-            translateY.value = withTiming(isActive ? 0 : -40, { duration: 800, easing: Easing.out(Easing.cubic) });
-            scale.value = withTiming(isActive ? 1 : 0.96, { duration: 800, easing: Easing.out(Easing.cubic) });
-        }
-    }, [isActive, isMounted]);
-
-    const animatedStyle = useAnimatedStyle(() => ({
-        opacity: opacity.value,
-        transform: [
-            { translateY: translateY.value },
-            { scale: scale.value },
-        ],
-    }));
-
-    if (!isMounted) return null;
-
-    return (
-        <Animated.View style={[StyleSheet.absoluteFill, { backgroundColor: '#09090b' }, animatedStyle]}>
-            {children}
-        </Animated.View>
-    );
-}
-
-// Progress bar segment component
-function ProgressSegment({ index, currentStep }: { index: number; currentStep: number }) {
-    const width = useSharedValue(0);
-    const opacity = useSharedValue(0);
-
-    useEffect(() => {
-        if (index < currentStep) {
-            width.value = withTiming(100, { duration: 300 });
-            opacity.value = withTiming(1, { duration: 300 });
-        } else if (index === currentStep) {
-            width.value = withTiming(100, { duration: 4000 });
-            opacity.value = withTiming(1, { duration: 300 });
-        } else {
-            width.value = 0;
-            opacity.value = 0;
-        }
-    }, [currentStep, index]);
-
-    const animatedStyle = useAnimatedStyle(() => ({
-        width: `${width.value}%`,
-        opacity: opacity.value,
-    }));
-
-    return (
-        <View className="h-1 flex-1 bg-white/10 rounded-full overflow-hidden">
-            <Animated.View style={animatedStyle} className="h-full bg-white rounded-full" />
-        </View>
-    );
-}
 
 export default function App() {
     const [step, setStep] = useState(0);

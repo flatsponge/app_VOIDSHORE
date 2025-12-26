@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, Text, Pressable, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { View, TextInput, Text, Pressable, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, Platform } from 'react-native';
 import { MotiView } from 'moti';
 import { Send, Clock, Feather, ArrowUp } from 'lucide-react-native';
 import { cn } from '../utils/cn';
@@ -69,11 +69,15 @@ export const FlowEditor: React.FC<FlowEditorProps> = ({
     };
 
     return (
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View className={`flex-1 w-full relative ${isDemo ? '' : 'pt-24 pb-32'}`}>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{ flex: 1 }}
+        >
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View className={`flex-1 w-full relative ${isDemo ? '' : 'pt-24 pb-32'}`}>
 
-                {/* Text Input Area */}
-                <View className="flex-1 justify-center px-8 relative z-20">
+                    {/* Text Input Area */}
+                    <View className="flex-1 justify-center px-8 relative z-20">
                     <>
                         {!isSending ? (
                             <MotiView
@@ -122,11 +126,11 @@ export const FlowEditor: React.FC<FlowEditorProps> = ({
                     </>
                 </View>
 
-                {/* Controls Area */}
-                {!isDemo && !isSending && (
-                    <View className="absolute bottom-0 left-0 right-0 px-6 pb-8 flex items-center justify-end gap-6 z-30">
+                    {/* Controls Area */}
+                    {!isDemo && !isSending && (
+                        <View className="absolute bottom-0 left-0 right-0 px-6 pb-8 flex items-center justify-end gap-6 z-30">
 
-                        {/* Context/Timer */}
+                            {/* Context/Timer */}
                         <View className="h-8 items-center justify-center">
                             <>
                                 {timeLeft ? (
@@ -155,32 +159,33 @@ export const FlowEditor: React.FC<FlowEditorProps> = ({
                             </>
                         </View>
 
-                        {/* Main Action Button */}
-                        <View className="h-16 items-center justify-center">
-                            <>
-                                {content.trim().length > 0 && !timeLeft && (
-                                    <MotiView
-                                        key="send"
-                                        from={{ opacity: 0, scale: 0.8, translateY: 20 }}
-                                        animate={{ opacity: 1, scale: 1, translateY: 0 }}
-                                        exit={{ opacity: 0, scale: 0.8, translateY: 10 }}
-                                    >
-                                        <Pressable
-                                            onPress={handleSend}
-                                            className="flex-row items-center gap-3 bg-white pl-6 pr-5 py-3 rounded-full shadow-lg active:scale-95 transition-all"
+                            {/* Main Action Button */}
+                            <View className="h-16 items-center justify-center">
+                                <>
+                                    {content.trim().length > 0 && !timeLeft && (
+                                        <MotiView
+                                            key="send"
+                                            from={{ opacity: 0, scale: 0.8, translateY: 20 }}
+                                            animate={{ opacity: 1, scale: 1, translateY: 0 }}
+                                            exit={{ opacity: 0, scale: 0.8, translateY: 10 }}
                                         >
-                                            <Text className="font-medium text-lg tracking-wide text-black">Drift</Text>
-                                            <View className="w-8 h-8 bg-black rounded-full items-center justify-center">
-                                                <ArrowUp size={16} color="white" />
-                                            </View>
-                                        </Pressable>
-                                    </MotiView>
-                                )}
-                            </>
+                                            <Pressable
+                                                onPress={handleSend}
+                                                className="flex-row items-center gap-3 bg-white pl-6 pr-5 py-3 rounded-full shadow-lg active:scale-95"
+                                            >
+                                                <Text className="font-medium text-lg tracking-wide text-black">Drift</Text>
+                                                <View className="w-8 h-8 bg-black rounded-full items-center justify-center">
+                                                    <ArrowUp size={16} color="white" />
+                                                </View>
+                                            </Pressable>
+                                        </MotiView>
+                                    )}
+                                </>
+                            </View>
                         </View>
-                    </View>
-                )}
-            </View>
-        </TouchableWithoutFeedback>
+                    )}
+                </View>
+            </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
     );
 };

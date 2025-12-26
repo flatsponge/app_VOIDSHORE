@@ -58,7 +58,7 @@ export const Button: React.FC<ButtonProps> = ({
       >
         <Pressable
             onPress={onPress}
-            className={`${getBg()} py-4 rounded-2xl shadow-sm active:opacity-90 active:scale-95 transition-all items-center justify-center overflow-hidden relative ${className}`}
+            className={`${getBg()} py-4 rounded-2xl shadow-sm active:opacity-90 active:scale-95 items-center justify-center overflow-hidden relative ${className}`}
             {...props}
         >
             {variant === 'glass' && (
