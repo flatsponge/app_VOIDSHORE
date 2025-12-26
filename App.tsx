@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { IntroStep } from './components/IntroStep';
 import { FlowDemoStep } from './components/FlowDemoStep';
 import { BottleStep } from './components/BottleStep';
@@ -33,36 +34,38 @@ export default function App() {
     ];
 
     return (
-        <View className="flex-1 bg-[#09090b]">
-            <StatusBar style="light" />
+        <SafeAreaProvider>
+            <View className="flex-1 bg-[#09090b]">
+                <StatusBar style="light" />
 
-            {/* Container for Steps */}
-            <View style={StyleSheet.absoluteFill}>
-                {stepsContent.map((item, index) => {
-                    // Only render current and previous step for transitions
-                    const isMounted = index <= step && step - index <= 1;
-                    const isActive = step === index;
+                {/* Container for Steps */}
+                <View style={StyleSheet.absoluteFill}>
+                    {stepsContent.map((item, index) => {
+                        // Only render current and previous step for transitions
+                        const isMounted = index <= step && step - index <= 1;
+                        const isActive = step === index;
 
-                    return (
-                        <AnimatedStep
-                            key={item.key}
-                            isActive={isActive}
-                            isMounted={isMounted}
-                        >
-                            {item.component}
-                        </AnimatedStep>
-                    );
-                })}
-            </View>
-
-            {/* Progress Bar - Only show for onboarding steps */}
-            {step < stepsContent.length - 1 && (
-                <View className="absolute top-12 left-6 right-6 flex-row gap-2 z-50" pointerEvents="none">
-                    {stepsContent.slice(0, stepsContent.length - 1).map((_, i) => (
-                        <ProgressSegment key={i} index={i} currentStep={step} />
-                    ))}
+                        return (
+                            <AnimatedStep
+                                key={item.key}
+                                isActive={isActive}
+                                isMounted={isMounted}
+                            >
+                                {item.component}
+                            </AnimatedStep>
+                        );
+                    })}
                 </View>
-            )}
-        </View>
+
+                {/* Progress Bar - Only show for onboarding steps */}
+                {step < stepsContent.length - 1 && (
+                    <View className="absolute top-12 left-6 right-6 flex-row gap-2 z-50" pointerEvents="none">
+                        {stepsContent.slice(0, stepsContent.length - 1).map((_, i) => (
+                            <ProgressSegment key={i} index={i} currentStep={step} />
+                        ))}
+                    </View>
+                )}
+            </View>
+        </SafeAreaProvider>
     );
 }
