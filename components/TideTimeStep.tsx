@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, ScrollView, StyleSheet, Dimensions, FlatList, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import { Button } from './Button';
 import { Waves } from 'lucide-react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface TideTimeStepProps {
   onNext: () => void;
@@ -14,9 +15,13 @@ const ITEM_HEIGHT = 64;
 export const TideTimeStep: React.FC<TideTimeStepProps> = ({ onNext }) => {
   const [selectedHour, setSelectedHour] = useState('09');
   const [selectedMinute, setSelectedMinute] = useState('00');
+  const insets = useSafeAreaInsets();
   
   return (
-    <View className="flex-1 bg-black px-6 pt-12 relative">
+    <View
+        className="flex-1 bg-black px-6 relative"
+        style={{ paddingTop: insets.top + 12 }}
+    >
       <View className="items-center mb-10 z-10">
         <Text className="text-3xl font-bold text-white mb-3">
           The Daily Tide 🌊

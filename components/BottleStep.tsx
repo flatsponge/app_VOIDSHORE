@@ -4,6 +4,7 @@ import { MotiView } from 'moti';
 import { Button } from './Button';
 import { HeartHandshake } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface BottleStepProps {
   onNext: () => void;
@@ -12,8 +13,13 @@ interface BottleStepProps {
 const { width } = Dimensions.get('window');
 
 export const BottleStep: React.FC<BottleStepProps> = ({ onNext }) => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <View className="flex-1 items-center justify-center bg-[#09090b] overflow-hidden">
+    <View
+        className="flex-1 items-center justify-center bg-[#09090b] overflow-hidden"
+        style={{ paddingBottom: insets.bottom }}
+    >
       
       {/* Background Ocean Effect */}
       <View style={StyleSheet.absoluteFill}>

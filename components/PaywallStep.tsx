@@ -5,12 +5,15 @@ import { BlurView } from 'expo-blur';
 import { Button } from './Button';
 import { Check, Star, Shield, Zap, Infinity as InfinityIcon } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface PaywallStepProps {
   onNext: () => void;
 }
 
 export const PaywallStep: React.FC<PaywallStepProps> = ({ onNext }) => {
+  const insets = useSafeAreaInsets();
+
   return (
     <View className="flex-1 bg-[#09090b] relative">
       
@@ -18,7 +21,7 @@ export const PaywallStep: React.FC<PaywallStepProps> = ({ onNext }) => {
       <View className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-600 opacity-20 rounded-full blur-3xl pointer-events-none" />
       <View className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-600 opacity-10 rounded-full blur-3xl pointer-events-none" />
 
-      <ScrollView contentContainerStyle={{ paddingBottom: 150, paddingTop: 60, paddingHorizontal: 24 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 150, paddingTop: insets.top + 20, paddingHorizontal: 24 }}>
         <MotiView 
             from={{ opacity: 0, translateY: 20 }}
             animate={{ opacity: 1, translateY: 0 }}
@@ -101,7 +104,12 @@ export const PaywallStep: React.FC<PaywallStepProps> = ({ onNext }) => {
       </ScrollView>
 
       {/* Fixed Bottom Button Area */}
-      <BlurView intensity={20} tint="dark" className="absolute bottom-0 left-0 right-0 px-6 pb-8 pt-4 border-t border-white/10"> 
+      <BlurView
+        intensity={20}
+        tint="dark"
+        className="absolute bottom-0 left-0 right-0 px-6 pt-4 border-t border-white/10"
+        style={{ paddingBottom: insets.bottom + 20 }}
+      >
         <Button onPress={onNext} className="mb-2">
             Start Free Trial
         </Button>

@@ -6,6 +6,7 @@ import {
   CloudRain, Heart, Sparkles, Brain, 
   Coffee, Moon, Sun, BookOpen 
 } from 'lucide-react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface TopicsStepProps {
   onNext: () => void;
@@ -47,10 +48,14 @@ export const TopicsStep: React.FC<TopicsStepProps> = ({ onNext }) => {
 
   const MIN_SELECTION = 3;
   const isComplete = selected.length >= MIN_SELECTION;
+  const insets = useSafeAreaInsets();
 
   return (
     <View className="flex-1 bg-black relative overflow-hidden">
-      <View className="px-6 pt-20 z-20 items-center pointer-events-none">
+      <View
+        className="px-6 z-20 items-center pointer-events-none"
+        style={{ paddingTop: insets.top + 20 }}
+      >
         <MotiText 
              from={{ opacity: 0, translateY: -10 }}
              animate={{ opacity: 1, translateY: 0 }}

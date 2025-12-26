@@ -4,6 +4,7 @@ import { MotiView } from 'moti';
 import { Button } from './Button';
 import { Fingerprint, Shield, RefreshCw, Sparkles } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface PassportStepProps {
     onNext: () => void;
@@ -51,8 +52,13 @@ export const PassportStep: React.FC<PassportStepProps> = ({ onNext }) => {
         }, 50);
     };
 
+    const insets = useSafeAreaInsets();
+
     return (
-        <View className="flex-1 items-center pt-20 px-6 bg-black">
+        <View
+            className="flex-1 items-center px-6 bg-black"
+            style={{ paddingTop: insets.top + 20 }}
+        >
 
             <View className="items-center mb-8 z-10">
                 <Text className="text-3xl font-bold text-white mb-2">Anonymous Identity</Text>

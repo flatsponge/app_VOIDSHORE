@@ -5,6 +5,7 @@ import { FlowEditor } from './FlowEditor';
 import { Button } from './Button';
 import { Brain, CheckCircle2 } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface FlowDemoStepProps {
     onNext: () => void;
@@ -14,13 +15,17 @@ const { width } = Dimensions.get('window');
 
 export const FlowDemoStep: React.FC<FlowDemoStepProps> = ({ onNext }) => {
     const [hasDrifted, setHasDrifted] = useState(false);
+    const insets = useSafeAreaInsets();
 
     const handleDemoSend = () => {
         setHasDrifted(true);
     };
 
     return (
-        <View className="flex-1 bg-[#09090b] pt-12">
+        <View
+            className="flex-1 bg-[#09090b]"
+            style={{ paddingTop: insets.top + 12 }}
+        >
             <View className="px-6 mb-4 items-center z-20">
                 <>
                     {!hasDrifted ? (
