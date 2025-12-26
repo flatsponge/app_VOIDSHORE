@@ -61,7 +61,6 @@ export const BottleStep: React.FC<BottleStepProps> = ({ onNext }) => {
         style={{
              borderTopLeftRadius: 16, 
              borderTopRightRadius: 16,
-             backdropFilter: 'blur(4px)' // Note: RN doesn't support backdropFilter directly without Skia, but keeping prop for web compatibility or just ignoring
         }}
       >
         <View className="absolute top-[-10px] w-12 h-8 bg-white/10 border border-white/20 rounded-sm" />
@@ -72,7 +71,7 @@ export const BottleStep: React.FC<BottleStepProps> = ({ onNext }) => {
             animate={{ scaleY: 1 }}
             transition={{ delay: 500, type: 'timing', duration: 1000 }}
             className="w-20 h-32 bg-[#f4f4f5] opacity-80 rounded-sm"
-            style={{ originY: 100 }} // Origin bottom equivalent
+            style={{ transformOrigin: ['50%', '100%', 0] }} // Origin bottom equivalent
         >
              <View className="w-full h-full p-2 gap-2">
                 <View className="w-full h-1 bg-black/10 rounded-full" />
