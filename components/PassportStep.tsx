@@ -275,8 +275,8 @@ export const PassportStep: React.FC<PassportStepProps> = ({ onNext }) => {
         >
 
             <View className="items-center mb-8 z-10">
-                <Text className="text-3xl font-bold text-white mb-2">Anonymous Identity</Text>
-                <Text className="text-gray-400 text-sm">You are free to be yourself.</Text>
+                <Text className="text-3xl font-bold text-white mb-2">Truly Anonymous</Text>
+                <Text className="text-gray-400 text-sm">Vulnerability requires safety.</Text>
             </View>
 
             {/* Drifter Pass Card */}

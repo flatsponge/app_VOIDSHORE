@@ -33,7 +33,7 @@ export const CommunityStep: React.FC<CommunityStepProps> = ({ onNext }) => {
                     animate={{ opacity: 1, translateY: 0 }}
                     className="text-3xl font-serif text-white mb-4 text-center"
                 >
-                    You are not alone.
+                    Gain New Perspective.
                 </MotiText>
                 <MotiText
                     from={{ opacity: 0 }}
@@ -41,7 +41,7 @@ export const CommunityStep: React.FC<CommunityStepProps> = ({ onNext }) => {
                     transition={{ delay: 200, type: 'timing' }}
                     className="text-gray-400 font-light text-center"
                 >
-                    Receive anonymous support from strangers who listen without judgment.
+                    Receive wisdom from strangers who have walked your path. Zero judgment.
                 </MotiText>
             </View>
 

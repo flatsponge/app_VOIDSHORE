@@ -46,7 +46,7 @@ export const FlowDemoStep: React.FC<FlowDemoStepProps> = ({ onNext }) => {
                                 The Weight of Thought
                             </Text>
                             <Text className="text-zinc-400 text-sm leading-relaxed text-center max-w-xs">
-                                Psychology shows that unexpressed thoughts create mental tension.
+                                Your thoughts have mass. Holding them in creates tension.
                             </Text>
                             <Text className="text-white text-sm font-medium text-center mt-1">
                                 Releasing them is the cure.
@@ -67,11 +67,10 @@ export const FlowDemoStep: React.FC<FlowDemoStepProps> = ({ onNext }) => {
                                 <CheckCircle2 size={32} color="#4ade80" />
                             </MotiView>
                             <Text className="text-white text-2xl font-serif italic mb-2 text-center">
-                                Felt that?
+                                Felt that release?
                             </Text>
                             <Text className="text-zinc-300 text-sm leading-relaxed text-center max-w-xs">
-                                That moment of release is what Drift provides every single day.
-                                Clear your mind, improve your sleep.
+                                Now imagine if someone was there to listen.
                             </Text>
                         </MotiView>
                     )}

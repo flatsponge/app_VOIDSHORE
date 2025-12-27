@@ -41,13 +41,8 @@ const getCurrentLevel = (xp: number) => {
 // Mock data generator for received bottles
 const getRandomBottle = (): Bottle => {
     const content = [
-        "I realized today that I've been holding my breath for years. Just letting it out felt like a victory.",
-        "The city is so loud, but looking at the moon makes me feel like we're all in the same quiet room.",
-        "I forgave someone today. Not for them, but for me. The weight is finally gone.",
-        "Do you ever feel like you're waiting for a train that's already left? I think I need to start walking.",
-        "To whoever reads this: You are doing enough. You are enough.",
-        "Sometimes I sit by the window and watch the rain. It feels like the sky is doing the crying for me.",
-        "I planted a garden today. It's hope, I think. Putting something in the ground and believing it will grow."
+        "I lost in battleground and I am so sad. It feels like the world has turned its back on me, and every step forward is a struggle against an invisible tide. I don't know if I have the strength to keep fighting this war alone.",
+        "How I see darkness and so much darkness now in winter. The cold seems to seep into my very bones, and the long nights stretch out endlessly before me. I search for a flicker of light, a single spark to warm my hands, but all I find is the deepening shadow of the season."
     ];
 
     const locations = [
@@ -433,7 +428,7 @@ export const MainApp: React.FC = () => {
                     <Text className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">
                         {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}
                     </Text>
-                    <Text className="text-white/90 text-xl font-serif italic tracking-wide">Drift</Text>
+                    <Text className="text-white/90 text-xl font-serif italic tracking-wide">Void Shore</Text>
                 </MotiView>
 
                 <Pressable onPress={() => setShowProfile(true)}>

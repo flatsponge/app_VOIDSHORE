@@ -63,12 +63,20 @@ export const IntroStep: React.FC<IntroStepProps> = ({ onNext }) => {
       <View className="w-full relative z-10 items-center gap-8">
         <View className="items-center">
           <MotiText
+            from={{ opacity: 0, translateY: 20 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ delay: 100, type: 'timing', duration: 800 }}
+            className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-4"
+          >
+            Void Shore
+          </MotiText>
+          <MotiText
             from={{ opacity: 0, translateY: 30 }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ delay: 200, type: 'timing', duration: 800 }}
             className="font-serif italic text-6xl text-white leading-tight tracking-tight text-center"
           >
-            Quiet
+            Share
           </MotiText>
           <MotiText
             from={{ opacity: 0, translateY: 30 }}
@@ -76,7 +84,7 @@ export const IntroStep: React.FC<IntroStepProps> = ({ onNext }) => {
             transition={{ delay: 300, type: 'timing', duration: 800 }}
             className="font-serif text-zinc-500 text-5xl text-center"
           >
-            the Noise.
+            the Weight.
           </MotiText>
         </View>
 
@@ -94,10 +102,10 @@ export const IntroStep: React.FC<IntroStepProps> = ({ onNext }) => {
           className="gap-4 items-center"
         >
           <Text className="text-zinc-300 text-lg leading-relaxed font-light text-center">
-            Your mind is constantly running.
+            Some burdens are too heavy for one pair of shoulders.
           </Text>
           <Text className="text-zinc-300 text-lg leading-relaxed font-light text-center">
-            It's time to let it rest.
+            Find release in sharing.
           </Text>
         </MotiView>
       </View>

@@ -106,7 +106,7 @@ export const BottleStep: React.FC<BottleStepProps> = ({ onNext }) => {
           transition={{ delay: 1000, type: 'timing' }}
         >
           <Text className="text-3xl text-white font-serif italic mb-4 text-center">
-            You are not alone.
+            Send to the Sea.
           </Text>
         </MotiView>
 
@@ -116,10 +116,7 @@ export const BottleStep: React.FC<BottleStepProps> = ({ onNext }) => {
           transition={{ delay: 1200, type: 'timing' }}
         >
           <Text className="text-zinc-400 font-light leading-relaxed text-center">
-            Your thoughts drift anonymously to kind strangers.
-          </Text>
-          <Text className="text-zinc-400 font-light leading-relaxed text-center">
-            Receive support without judgment.
+            Cast your troubles into the tide. Let them drift to someone who needs to hear them.
           </Text>
         </MotiView>
       </View>

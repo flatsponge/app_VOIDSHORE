@@ -13,6 +13,8 @@ import { PaywallStep } from './components/PaywallStep';
 import { MainApp } from './components/MainApp';
 import { AnimatedStep } from './components/AnimatedStep';
 import { ProgressSegment } from './components/ProgressSegment';
+import { PerspectiveStep } from './components/PerspectiveStep';
+import { ReceiveStep } from './components/ReceiveStep';
 import './global.css';
 
 export default function App() {
@@ -33,11 +35,22 @@ function AppContent() {
     const stepsContent = [
         { key: 'intro', component: <IntroStep onNext={nextStep} /> },
         { key: 'demo', component: <FlowDemoStep onNext={nextStep} /> },
+        { key: 'community', component: <CommunityStep onNext={nextStep} /> },
+        { key: 'perspective', component: <PerspectiveStep onNext={nextStep} /> },
         { key: 'bottle', component: <BottleStep onNext={nextStep} /> },
+        { key: 'receive', component: <ReceiveStep onNext={nextStep} /> },
         { key: 'passport', component: <PassportStep onNext={nextStep} /> },
         { key: 'topics', component: <TopicsStep onNext={nextStep} /> },
+        // TideTimeStep removed from linear flow or moved? Plan didn't specify deletion, but mentioned 9 steps.
+        // Let's keep TideTimeStep if it was there, or remove if the plan implies replacement. 
+        // The plan listed: Intro, FlowDemo, Community, Perspective, Bottle, Receive, Passport, Topics, Paywall.
+        // TideTimeStep was in the original list. I'll keep it before community or maybe after topics? 
+        // Actually, let's follow the user's plan strictly: 
+        // 1. Intro 2. FlowDemo 3. Community (Moved up) 4. Perspective (New) 5. Bottle 6. Receive (New) 7. Passport 8. Topics 9. Paywall
+        // I will remove TideTimeStep from the main flow if it wasn't requested, OR put it before paywall?
+        // The user said "expand the pages... more onboarding steps".
+        // Use judgment: TideTimeStep sets the notification time. It is useful. I'll put it after Topics.
         { key: 'tide', component: <TideTimeStep onNext={nextStep} /> },
-        { key: 'community', component: <CommunityStep onNext={nextStep} /> },
         { key: 'paywall', component: <PaywallStep onNext={nextStep} /> },
         { key: 'main', component: <MainApp /> }
     ];

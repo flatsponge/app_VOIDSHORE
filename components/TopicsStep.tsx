@@ -61,7 +61,7 @@ export const TopicsStep: React.FC<TopicsStepProps> = ({ onNext }) => {
           animate={{ opacity: 1, translateY: 0 }}
           className="text-2xl font-bold text-white mb-2"
         >
-          What's on your mind?
+          Find Your Shore.
         </MotiText>
         <MotiText
           from={{ opacity: 0 }}
@@ -69,7 +69,7 @@ export const TopicsStep: React.FC<TopicsStepProps> = ({ onNext }) => {
           transition={{ delay: 200, type: 'timing' }}
           className="text-gray-400 text-sm text-center"
         >
-          Select topics to guide the bottles you find.
+          Connect with others navigating the same waters.
         </MotiText>
 
         {/* Selection Counter */}

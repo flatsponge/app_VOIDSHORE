@@ -86,7 +86,7 @@ export const TideTimeStep: React.FC<TideTimeStepProps> = ({ onNext }) => {
                             <View className="flex-1">
                                 <View className="flex-row justify-between items-baseline mb-0.5">
                                     <Text className="font-semibold text-white text-[15px]">
-                                        Drift
+                                        Void Shore
                                     </Text>
                                     <Text className="text-[12px] text-gray-500">now</Text>
                                 </View>

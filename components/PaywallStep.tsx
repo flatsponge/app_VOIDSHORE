@@ -53,7 +53,7 @@ export const PaywallStep: React.FC<PaywallStepProps> = ({ onNext }) => {
 
                     <View className="flex-row justify-between items-end mb-6">
                         <View>
-                            <Text className="text-white font-medium text-lg">Drift Premium</Text>
+                            <Text className="text-white font-medium text-lg">Void Shore Premium</Text>
                             <View className="flex-row items-center gap-1 mt-1">
                                 <Star size={12} color="#facc15" fill="#facc15" />
                                 <Star size={12} color="#facc15" fill="#facc15" />
@@ -90,7 +90,7 @@ export const PaywallStep: React.FC<PaywallStepProps> = ({ onNext }) => {
                     transition={{ delay: 400, type: 'timing' }}
                     className="bg-[#121214] rounded-2xl p-4 border border-white/5"
                 >
-                    <Text className="text-zinc-300 text-sm italic mb-3">"I've tried every journaling app. Drift is the only one that actually makes me feel lighter. It's therapy in my pocket."</Text>
+                    <Text className="text-zinc-300 text-sm italic mb-3">"I've tried every journaling app. Void Shore is the only one that actually makes me feel lighter. It's therapy in my pocket."</Text>
                     <View className="flex-row items-center gap-3">
                         <View className="w-8 h-8 bg-zinc-700 rounded-full items-center justify-center">
                             <Text className="text-xs text-white font-bold">JD</Text>
