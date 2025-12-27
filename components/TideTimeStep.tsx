@@ -124,7 +124,11 @@ interface WheelPickerProps {
 }
 
 const WheelPicker: React.FC<WheelPickerProps> = ({ items, selectedValue, onValueChange }) => {
-    const scrollY = useSharedValue(0);
+    // Calculate initial offset first so we can initialize scrollY correctly
+    const initialIndex = items.indexOf(selectedValue);
+    const initialOffset = initialIndex >= 0 ? initialIndex * ITEM_HEIGHT : 0;
+
+    const scrollY = useSharedValue(initialOffset);
     const scrollRef = useRef<Animated.ScrollView>(null);
     const lastHapticIndex = useRef(-1);
 
@@ -150,10 +154,6 @@ const WheelPicker: React.FC<WheelPickerProps> = ({ items, selectedValue, onValue
             }
         },
     });
-
-    // Calculate initial offset
-    const initialIndex = items.indexOf(selectedValue);
-    const initialOffset = initialIndex >= 0 ? initialIndex * ITEM_HEIGHT : 0;
 
     return (
         <View style={styles.wheelContainer}>
