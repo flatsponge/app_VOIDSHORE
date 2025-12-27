@@ -733,14 +733,32 @@ export const MainApp: React.FC = () => {
             <>
                 {notification && (
                     <MotiView
-                        from={{ opacity: 0, translateY: -50, scale: 0.9 }}
-                        animate={{ opacity: 1, translateY: 0, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
+                        from={{ opacity: 0, translateY: -20 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        exit={{ opacity: 0, translateY: -10 }}
+                        transition={{
+                            type: 'timing',
+                            duration: 450,
+                        }}
                         className="absolute left-0 right-0 items-center z-50 pointer-events-none"
                         style={{ top: insets.top + 8 }}
                     >
-                        <View className={`bg-zinc-800 border border-white/10 px-6 py-4 rounded-2xl shadow-2xl flex-row items-center gap-3 ${notificationType === 'xp' ? 'border-indigo-500/30 bg-indigo-900' : ''}`}>
-                            <View className={`w-2 h-2 rounded-full ${notificationType === 'xp' ? 'bg-yellow-400' : 'bg-indigo-400'}`} />
+                        <View className={`bg-zinc-800/90 border border-white/10 px-5 py-3 rounded-2xl shadow-2xl flex-row items-center gap-3 ${notificationType === 'xp' ? 'border-indigo-500/30 bg-indigo-900/90' : ''}`}>
+                            {notificationType === 'xp' ? (
+                                <MotiView
+                                    from={{ scale: 1, opacity: 0.7 }}
+                                    animate={{ scale: 1.3, opacity: 1 }}
+                                    transition={{
+                                        type: 'timing',
+                                        duration: 600,
+                                        loop: true,
+                                        repeatReverse: true,
+                                    }}
+                                    className="w-2 h-2 rounded-full bg-yellow-400"
+                                />
+                            ) : (
+                                <View className="w-2 h-2 rounded-full bg-indigo-400" />
+                            )}
                             <Text className="text-white text-sm font-medium">{notification}</Text>
                         </View>
                     </MotiView>
